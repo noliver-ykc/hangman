@@ -1,0 +1,18 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+.categories {
+  display: flex;
+  align-items: center;
+}
+.category-card {
+  height: 200px;
+  line-height: 200px;
+  width: 300px;
+  background-color: rgb(22, 35, 35);
+  color: white;
+  margin: 50px;
+  border-radius: 10px;
+  text-align: center;
+}
