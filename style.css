@@ -1,21 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;500&display=swap');
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
 p {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+h2 {
   margin: 0;
-  padding: 0;
+  padding-top: 35px;
+  font-size: 32px;
+}
+
+.welcome-text {
+  text-align: center;
 }
 .categories {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
+
 .category-card {
-  height: 200px;
-  line-height: 200px;
-  min-width: 300px;
+  height: 175px;
+  min-width: 275px;
+  max-width: 275px;
+  font-size: 36px;
   background-color: rgb(22, 35, 35);
   color: white;
   margin: 50px;
+  padding: 25px;
   border-radius: 10px;
   text-align: center;
+
 }
+.category-card:hover {
+  font-size: 36px;
+  text-decoration: underline solid 5px rgb(42, 147, 208);
+}
+
+a {
+  text-decoration: none;
+}
+
 @media (min-width: 100px) and (max-width: 575px) {
   .categories {
     display: block;
@@ -25,6 +53,7 @@ p {
     height: 150px;
     line-height: 150px;
     min-width: 150px;
+    max-width: 450px;
     margin: 10px;
   }
 }
