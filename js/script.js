@@ -19,7 +19,8 @@ const randomPref = () => {
 };
 
 const randomCountry = () => {
-  countries[Math.floor(Math.random() * jobs.length)]
+  const answer = countries[Math.floor(Math.random() * jobs.length)];
+  document.getElementById("hidden-answer").innerHTML = answer;
 };
 
 function randmAnimal() {
@@ -41,4 +42,10 @@ function generateLetters() {
   document.getElementById('keyboard').innerHTML = lettersHTML;
 }
 
+// 20:30
+document.getElementById("maxWrong").innerHTML = maxWrong;
+document.getElementById("mistakes").innerHTML = mistakes;
+
+
 generateLetters();
+randomCountry();
