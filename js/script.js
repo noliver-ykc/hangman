@@ -29,7 +29,7 @@ function randmAnimal() {
 function generateLetters() {
   let lettersHTML = 'abcdefghijklmnopqrstuvwxyz'.split("").map(letter =>
     `
-      <button 
+      <button
         class ="btn btn-lg btn-primary m-2"
         id='` + letter + `
         onClick="handleGuess('` + letter + `')"
@@ -39,6 +39,8 @@ function generateLetters() {
     `).join('');
 
   document.getElementById('keyboard').innerHTML = lettersHTML;
+  // when a letter is clicked on, change btn-primary to btn-danger if bad and btn success if good
 }
 
 generateLetters();
+console.log(typeof randomAnimal());
