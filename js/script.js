@@ -61,15 +61,15 @@ function handleGuess(selectedLetter) {
   if (answer.indexOf(selectedLetter) >= 0) {
     guessedWord();
   } else {
-    mistakes--;
     document.getElementById("mistakes").innerHTML = mistakes;
+    mistakes--;
   }
   gameStatus();
 }
 function gameStatus() {
   if (mistakes < 0) {
-    alert(guessed);
-  } else if (guessed == answer) {
+    alert("You lost");
+  } else if (wordStatus == answer) {
     alert("You won");
   }
 }
