@@ -8,7 +8,7 @@ const animals = ["squirrel","turtle","platypus","giraffe","cheetah", "hamster","
 
 let answer = "";
 const maxWrong = 7;
-let mistakes = 1;
+let mistakes = 0;
 let guessed = [];
 let wordStatus = null;
 
@@ -60,28 +60,24 @@ function handleGuess(selectedLetter) {
   } else {
     mistakes++;
     document.getElementById("mistakes").innerHTML = mistakes;
+    addLimb();
   }
   gameStatus();
 }
 function gameStatus() {
-  if (mistakes = maxWrong) {
-    alert(mistakes + guessed);
-    document.getElementById("keyboard").innerHTML = "play again?"
+  if (mistakes == maxWrong) {
+    document.getElementById("keyboard").innerHTML = "You lost! Play again?"
     document.getElementById("wordSpotlight").innerHTML = "the answer was " + answer;
   } else if (wordStatus == answer) {
-    alert("You won");
+    document.getElementById("keyboard").innerHTML = "You won! Play again?"
+    startConfetti();
   }
 }
 
 function addLimb() {
-  document.getElementById("p" + mistakes).visibility.visibile;
+  document.getElementById(`p${mistakes}`).style.visibility = "visible";
 }
 
-function reset() {
-  mistakes = 0;
-  guessed = [];
-
-}
 
 document.getElementById("maxWrong").innerHTML = maxWrong;
 
