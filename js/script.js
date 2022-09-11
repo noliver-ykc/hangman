@@ -12,21 +12,41 @@ let mistakes = 0;
 let guessed = [];
 let wordStatus = null;
 
-const randomJob = () => {
-  jobs[Math.floor(Math.random() * jobs.length)]
-};
 
-const randomPref = () => {
-  prefectures[Math.floor(Math.random() * jobs.length)]
-};
-
-const randomCountry = () => {
-  answer = countries[Math.floor(Math.random() * jobs.length)];
-};
-
-function randmAnimal() {
-  animals[Math.floor(Math.random() * jobs.length)];
+// decides category based on page
+function decideCategory() {
+  const page = document.getElementById("page").innerHTML;
+  switch (page) {
+    case 'jobs':
+      const randomJob = () => {
+        answer = jobs[Math.floor(Math.random() * jobs.length)]
+      };
+      randomJob();
+      break;
+    case 'prefectures':
+      const randomPref = () => {
+        answer = prefectures[Math.floor(Math.random() * prefectures.length)]
+      };
+      randomPref();
+      break;
+    case 'countries':
+      const randomCountry = () => {
+        answer = countries[Math.floor(Math.random() * countries.length)];
+      };
+      randomCountry();
+      break;
+    case 'animals':
+      const randmAnimal = () => {
+        answer = animals[Math.floor(Math.random() * animals.length)];
+      }
+      randmAnimal();
+      break;
+    default :
+    console.log("hello index")
+      answer = null;
+  }
 }
+
 
 function generateLetters() {
   let lettersHTML = 'abcdefghijklmnopqrstuvwxyz'.split("").map(letter =>
@@ -80,6 +100,6 @@ function addLimb() {
 
 document.getElementById("maxWrong").innerHTML = maxWrong;
 
-randomCountry();
+decideCategory();
 generateLetters();
 guessedWord();

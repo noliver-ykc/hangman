@@ -9,8 +9,35 @@
   <title>Hangman</title>
 </head>
 <body>
-  <div class="category-title-card">
-    <h1>Your category is  <i>jobs</i></h1>
+  <div class="container">
+    <div class="text-center">
+      <div class="category-title-card">
+        <h1>Your category is <i><span id="page">jobs</span></i></h1>
+      </div>
+      <div class="gallows">
+        <p id="wordSpotlight"></p>
+        <svg width="382" height="471" viewBox="0 0 382 471" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- gallows -->
+          <line x1="303.5" y1="5.9794" x2="307.299" y2="466.964" stroke="black" stroke-width="5"/>
+          <line x1="0.958008" y1="467.5" x2="381.085" y2="467.5" stroke="black" stroke-width="7"/>
+          <line x1="242.835" y1="2.30203" x2="304.835" y2="69.302" stroke="black" stroke-width="5"/>
+          <line x1="146" y1="3.5" x2="306" y2="3.5" stroke="black" stroke-width="5"/>
+          <!-- human -->
+          <line class="limbs" id="p1" x1="148.5" y1="4" x2="148.5" y2="86" stroke="black" stroke-width="5"/>
+          <path class="limbs" id="p2" d="M178.5 121.5C178.5 140.136 165.81 154.5 151 154.5C136.19 154.5 123.5 140.136 123.5 121.5C123.5 102.864 136.19 88.5 151 88.5C165.81 88.5 178.5 102.864 178.5 121.5Z" stroke="black" stroke-width="5"/>
+          <line class="limbs" id="p3" x1="153.5" y1="153" x2="153.5" y2="271" stroke="black" stroke-width="5"/>
+          <line class="limbs" id="p4" x1="152.682" y1="179.85" x2="108.682" y2="219.85" stroke="black" stroke-width="5"/>
+          <line class="limbs" id="p5" x1="153.754" y1="179.219" x2="196.119" y2="220.947" stroke="black" stroke-width="5"/>
+          <line class="limbs" id="p6" x1="152.682" y1="272.85" x2="108.682" y2="312.85" stroke="black" stroke-width="5"/>
+          <line class="limbs" id="p7"  x1="153.754" y1="272.219" x2="196.119" y2="313.947" stroke="black" stroke-width="5"/>
+          </svg>
+      </div>
+      <p> <span id="mistakes">0</span> of <span id="maxWrong"></span> lives used</p>
+      <div id="keyboard"></div>
+      <img class="winner" src="https://media1.giphy.com/media/ORjfgiG9ZtxcQQwZzv/giphy.gif" alt="">
+      <div class="btn btn-info" value="Reload Page" onClick="window.location.reload(true)">New Game</div>
+    </div>
   </div>
+<script src="/js/script.js"></script>
 </body>
 </html>
