@@ -22,7 +22,6 @@ const randomPref = () => {
 
 const randomCountry = () => {
   answer = countries[Math.floor(Math.random() * jobs.length)];
-  document.getElementById("hidden-answer").innerHTML = answer;
 };
 
 function randmAnimal() {
@@ -70,7 +69,7 @@ function gameStatus() {
     document.getElementById("wordSpotlight").innerHTML = "the answer was " + answer;
   } else if (wordStatus == answer) {
     document.getElementById("keyboard").innerHTML = "You won! Play again?"
-    startConfetti();
+    document.querySelector(".winner").style.display = "block";
   }
 }
 
