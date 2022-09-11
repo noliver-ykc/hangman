@@ -1,14 +1,14 @@
 // playable categories
-const jobs = ["software engineer", "steve", "accountant", "producer","photographer","lawyer","consultant","coach","civil servant","train conductor"];
+const jobs = ["engineer", "steve", "accountant", "producer","photographer","lawyer","consultant","coach","dietician","tailor"];
 const prefectures = ["toyama","yamagata","fukushima","kagoshima","yamanashi","tochigi","fukuoka","kagawa","shimane","shizuoka"];
-const countries = ["jordan","ukraine","chile","philippines","new zealand","austria","greece","belize","papau new guinea","japan"];
-const animals = ["squirrel","turtle","platypus","giraffe","black panther", "hamster","hippo", "peacock","koala bear","ostrich"]
+const countries = ["jordan","ukraine","chile","philippines","georgia","austria","greece","belize","belarus","japan"];
+const animals = ["squirrel","turtle","platypus","giraffe","cheetah", "hamster","hippo", "peacock","koala","ostrich"]
 
 // game settings
 
 let answer = "";
 const maxWrong = 7;
-let mistakes = 7;
+let mistakes = 0;
 let guessed = [];
 let wordStatus = null;
 
@@ -44,9 +44,6 @@ function generateLetters() {
   document.getElementById('keyboard').innerHTML = lettersHTML;
 }
 
-// 20:30
-
-
 
 function guessedWord() {
   // this , for each letter generates a _
@@ -61,20 +58,27 @@ function handleGuess(selectedLetter) {
   if (answer.indexOf(selectedLetter) >= 0) {
     guessedWord();
   } else {
+    mistakes++;
     document.getElementById("mistakes").innerHTML = mistakes;
-    mistakes--;
+    addLimb();
   }
   gameStatus();
 }
 function gameStatus() {
-  if (mistakes < 0) {
-    alert("You lost");
-    document.getElementById("keyboard").innerHTML = "play again?"
+  if (mistakes == maxWrong) {
+    document.getElementById("keyboard").innerHTML = "You lost! Play again?"
+    document.getElementById("wordSpotlight").innerHTML = "the answer was " + answer;
   } else if (wordStatus == answer) {
-    alert("You won");
-    document.getElementById("keyboard").innerHTML = "play again?"
+    document.getElementById("keyboard").innerHTML = "You won! Play again?"
+    startConfetti();
   }
 }
+
+function addLimb() {
+  document.getElementById(`p${mistakes}`).style.visibility = "visible";
+}
+
+
 document.getElementById("maxWrong").innerHTML = maxWrong;
 
 randomCountry();
