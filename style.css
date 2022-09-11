@@ -43,6 +43,17 @@ h2 {
 a {
   text-decoration: none;
 }
+#wordSpotlight {
+  z-index: 10;
+  font-size: larger;
+  position: relative;
+  left: 60px;
+}
+.gallows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media (min-width: 100px) and (max-width: 575px) {
   .categories {

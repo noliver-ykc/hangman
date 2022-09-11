@@ -13,16 +13,18 @@
     <div class="text-center">
       <div class="category-title-card">
         <h1>Your category is <i>countries</i></h1>
-      </div>  
+      </div>
       <p id="hidden-answer">?</p>
-      <svg width="382" height="471" viewBox="0 0 382 471" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="146" y1="3.5" x2="306" y2="3.5" stroke="black" stroke-width="5"/>
-        <line x1="303.5" y1="5.9794" x2="307.299" y2="466.964" stroke="black" stroke-width="5"/>
-        <line x1="0.958008" y1="467.5" x2="381.085" y2="467.5" stroke="black" stroke-width="7"/>
-        <line x1="242.835" y1="2.30203" x2="304.835" y2="69.302" stroke="black" stroke-width="5"/>
-      </svg>
-        
-      <p> <span id="mistakes"></span> of <span id="maxWrong"></span> chances left</p>
+      <div class="gallows">
+        <p id="wordSpotlight"></p>
+        <svg width="382" height="471" viewBox="0 0 382 471" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="146" y1="3.5" x2="306" y2="3.5" stroke="black" stroke-width="5"/>
+          <line x1="303.5" y1="5.9794" x2="307.299" y2="466.964" stroke="black" stroke-width="5"/>
+          <line x1="0.958008" y1="467.5" x2="381.085" y2="467.5" stroke="black" stroke-width="7"/>
+          <line x1="242.835" y1="2.30203" x2="304.835" y2="69.302" stroke="black" stroke-width="5"/>
+        </svg>
+      </div>
+      <p> <span id="mistakes"></span> of <span id="maxWrong"></span> lives left</p>
       <div id="keyboard"></div>
       <div class="btn btn-info" onClick="newGame()">New Game</div>
     </div>

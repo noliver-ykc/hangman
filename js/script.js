@@ -5,10 +5,12 @@ const countries = ["jordan","ukraine","chile","philippines","new zealand","austr
 const animals = ["squirrel","turtle","platypus","giraffe","black panther", "hamster","hippo", "peacock","koala bear","ostrich"]
 
 // game settings
-const maxWrong = 7;
+
 let answer = "";
+const maxWrong = 7;
+let mistakes = 7;
 let guessed = [];
-let mistakes = 0;
+let wordStatus = null;
 
 const randomJob = () => {
   jobs[Math.floor(Math.random() * jobs.length)]
@@ -19,7 +21,7 @@ const randomPref = () => {
 };
 
 const randomCountry = () => {
-  const answer = countries[Math.floor(Math.random() * jobs.length)];
+  answer = countries[Math.floor(Math.random() * jobs.length)];
   document.getElementById("hidden-answer").innerHTML = answer;
 };
 
@@ -30,9 +32,9 @@ function randmAnimal() {
 function generateLetters() {
   let lettersHTML = 'abcdefghijklmnopqrstuvwxyz'.split("").map(letter =>
     `
-      <button 
+      <button
         class ="btn btn-lg btn-primary m-2"
-        id='` + letter + `
+        id='` + letter + `'
         onClick="handleGuess('` + letter + `')"
       >
         ` + letter + `
@@ -43,9 +45,36 @@ function generateLetters() {
 }
 
 // 20:30
+
+
+
+function guessedWord() {
+  // this , for each letter generates a _
+  wordStatus = answer.split('').map(letter =>(guessed.indexOf(letter) >= 0 ? letter : "_")).join('');
+  document.getElementById("wordSpotlight").innerHTML = wordStatus;
+}
+
+function handleGuess(selectedLetter) {
+  guessed.indexOf(selectedLetter) === -1 ? guessed.push(selectedLetter) : null;
+  // this will disbale the letter after you click
+  document.getElementById(selectedLetter).setAttribute('disabled', true);
+  if (answer.indexOf(selectedLetter) >= 0) {
+    guessedWord();
+  } else {
+    mistakes--;
+    document.getElementById("mistakes").innerHTML = mistakes;
+  }
+  gameStatus();
+}
+function gameStatus() {
+  if (mistakes < 0) {
+    alert(guessed);
+  } else if (guessed == answer) {
+    alert("You won");
+  }
+}
 document.getElementById("maxWrong").innerHTML = maxWrong;
-document.getElementById("mistakes").innerHTML = mistakes;
 
-
-generateLetters();
 randomCountry();
+generateLetters();
+guessedWord();
