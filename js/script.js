@@ -69,8 +69,10 @@ function handleGuess(selectedLetter) {
 function gameStatus() {
   if (mistakes < 0) {
     alert("You lost");
+    document.getElementById("keyboard").innerHTML = "play again?"
   } else if (wordStatus == answer) {
     alert("You won");
+    document.getElementById("keyboard").innerHTML = "play again?"
   }
 }
 document.getElementById("maxWrong").innerHTML = maxWrong;
