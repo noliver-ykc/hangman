@@ -80,9 +80,7 @@ a {
 }
 
 @media (min-width: 576px) and (max-width: 1200px) {
-  .categories {
 
-  }
   .category-card {
     height: 150px;
     line-height: 150px;
